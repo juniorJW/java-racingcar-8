@@ -25,4 +25,20 @@ public class CarService {
             }
         }
     }
+
+    //모델 객체 반환(service에서 사용)
+    public Car setCar(String carName){
+        return new Car(carName);
+    }
+    //자동차 이름 모델 객체로 반환 (controller에서 사용)
+    public List<Car> setCarList(String carNames){
+        List<String> carList = parseCarNames(carNames);
+        List<Car> setCarList = new ArrayList<>();
+
+        for(String s : carList){
+            Car car = setCar(s);
+            setCarList.add(car);
+        }
+        return setCarList;
+    }
 }
