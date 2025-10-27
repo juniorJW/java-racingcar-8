@@ -28,5 +28,8 @@ public class CarController {
             }
             repeat--;
         }
+
+        String winner = carService.getWinner(carList);
+        outputView.printWinner(winner);
     }
 }

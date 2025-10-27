@@ -65,4 +65,28 @@ public class CarService {
             car.move();
         }
     }
+
+    //우승자 포지션 반환
+    public int winnerPosition(List<Car> carList){
+        int winnerPosition = 0;
+
+        for(Car car : carList){
+            if(car.getPosition() > winnerPosition){
+                winnerPosition = car.getPosition();
+            }
+        }
+        return winnerPosition;
+    }
+    //우승자 반환
+    public String getWinner(List<Car> carList){
+        int winnerPosition = winnerPosition(carList);
+        List<String> winnerList = new ArrayList<>();
+
+        for(Car car : carList){
+            if(winnerPosition == car.getPosition()){
+                winnerList.add(car.getCarName());
+            }
+        }
+        return String.join(", ", winnerList);
+    }
 }
