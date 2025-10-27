@@ -24,8 +24,8 @@ public class CarController {
         while(repeat > 0){
             for(int i = 0; i < carList.size();i++){
                 carService.movePosition(carList.get(i));
-                outputView.currentPosition(carList);
             }
+            outputView.currentPosition(carList);
             repeat--;
         }
 
