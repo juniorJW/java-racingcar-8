@@ -6,6 +6,7 @@ import racingcar.controller.CarController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarService {
     //자동차 이름 String 리스트로 반환
@@ -56,5 +57,12 @@ public class CarService {
             throw new IllegalArgumentException("숫자 형식이 아닙니다");
         }
         return repeat;
+    }
+
+    //자동차 움직입 체크
+    public void movePosition(Car car){
+        if(Randoms.pickNumberInRange(0, 9) >= 4){
+            car.move();
+        }
     }
 }

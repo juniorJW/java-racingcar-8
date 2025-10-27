@@ -8,6 +8,10 @@ public class Car {
         this.carName = carName;
     }
 
+    public void move(){
+        this.position++;
+    }
+
     public String getCarName(){
         return this.carName;
     }

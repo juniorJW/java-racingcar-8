@@ -18,5 +18,12 @@ public class CarController {
         List<Car> carList = carService.setCarList(carNames);
 
         int repeat = carService.validateRepeat(inputView.repeat());
+
+        while(repeat > 0){
+            for(int i = 0; i < carList.size();i++){
+                carService.movePosition(carList.get(i));
+            }
+            repeat--;
+        }
     }
 }
