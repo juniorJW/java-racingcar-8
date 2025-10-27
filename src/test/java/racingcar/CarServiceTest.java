@@ -22,8 +22,8 @@ class CarServiceTest {
 
     @Test
     @DisplayName("자동차 이름이 null이면 예외")
-    void nameIsNull_throwsException(){
-        assertThatThrownBy(()->carService.validateCarNames(null))
+    void nameIsNull_throwsException() {
+        assertThatThrownBy(() -> carService.validateCarNames(null))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -53,7 +53,7 @@ class CarServiceTest {
     @Test
     @DisplayName("반복 횟수가 숫자가 아니면 예외")
     void repeatIsNotNum_throwsException() {
-        String  input = "a";
+        String input = "a";
 
         // IllegalArgumetException인지 확인
         assertThatThrownBy(() -> carService.validateRepeat(input))
