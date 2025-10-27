@@ -16,9 +16,12 @@ public class CarService {
 
     //자동차 이름 예외 처리
     public void validateCarNames(String carNames) {
-        List<String> carList = parseCarNames(carNames);
-        if (carNames == null || carList.isEmpty()) {
+        if (carNames == null) {
             throw new IllegalArgumentException("자동차 이름이 없습니다");
+        }
+        List<String> carList = parseCarNames(carNames);
+        if (carList.isEmpty()) {
+            throw new IllegalArgumentException("자동차 목록이 없습니다");
         }
         for (String s : carList) {
             if (s.length() > 5) {
