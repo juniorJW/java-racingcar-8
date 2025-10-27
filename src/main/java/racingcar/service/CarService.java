@@ -1,0 +1,28 @@
+package racingcar.service;
+
+import racingcar.model.Car;
+import racingcar.controller.CarController;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class CarService {
+    //자동차 이름 String 리스트로 반환
+    public List<String> parseCarNames(String carNames){
+        List<String> carList = new ArrayList<String>(Arrays.asList(carNames.split(",")));
+        return carList;
+    }
+    //자동차 이름 예외 처리
+    public void validateCarNames(String carNames){
+        List<String> carList = parseCarNames(carNames);
+        if(carNames == null || carList.isEmpty()){
+            throw new IllegalArgumentException("자동차 이름이 없습니다");
+        }
+        for(String s : carList){
+            if(s.length() > 5){
+                throw new IllegalArgumentException("자동차 이름이 5를 초과합니다");
+            }
+        }
+    }
+}
