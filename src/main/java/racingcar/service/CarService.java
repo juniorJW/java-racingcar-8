@@ -41,4 +41,20 @@ public class CarService {
         }
         return setCarList;
     }
+
+    // 반복 횟수 예외 처리
+    public int validateRepeat(String inputRepeat){
+        int repeat;
+
+        if(inputRepeat == null){
+            throw new IllegalArgumentException("반복 횟수가 없습니다");
+        }
+
+        try{
+            repeat = Integer.parseInt(inputRepeat);
+        }catch(NumberFormatException e){
+            throw new IllegalArgumentException("숫자 형식이 아닙니다");
+        }
+        return repeat;
+    }
 }
